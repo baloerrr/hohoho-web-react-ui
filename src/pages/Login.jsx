@@ -16,18 +16,18 @@ const Login = () => {
 
   return (
     <div className="login">
-      <div className="relative w-full min-h-screen bg-light-secondary dark:bg-slate-800 text-dark-gray dark:text-white">
-        <div className="fixed top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 w-full max-w-3xl md:max-w-2xl ">
+      <div className="relative w-full min-h-screen font-nunito bg-light-secondary dark:bg-slate-800 text-dark-gray dark:text-white">
+        <div className="fixed top-[50%] left-[50%] -translate-x-2/4 -translate-y-2/4 w-full max-w-3xl md:max-w-2xl px-3">
           <div className="pb-5 font-bold transition-all ">
             <h1 className=" text-3xl md:text-5xl text-cyan font-bold py-4 text-primary ">
               Hoh😐ho
             </h1>
-            <p className="text-lg md:text-2xl tracking-wide text-gray-700">
+            <p className="text-lg md:text-2xl tracking-wide text-gray-700 dark:text-gray-400">
               <strong className="text-xl md:text-3xl">Welcome back!</strong>{' '}
               let's sign in to see your notes
             </p>
           </div>
-          <form className="flex flex-col w-full py-8">
+          <form className="flex flex-col w-full py-3">
             <Input
               type="text"
               placeholder="Username"

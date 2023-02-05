@@ -1,17 +1,19 @@
 import React from 'react'
 import Header from './Header'
-import Footer from './Footer'
+import Sidebar from './Sidebar'
 import PropTypes from 'prop-types'
+import { useCycle } from 'framer-motion'
 
 const Layout = ({ children }) => {
+  const [open, cycleOpen] = useCycle(false, true)
+
   return (
     <>
-      <Header />
-      {children}
-      <Footer />
-      {/* <main className="w-full p-5 pt-20 h-[100vh] overflow-y-scroll scrollbar-hide md:px-10 md:py-5 bg-light-secondary dark:bg-dark-secondary text-dark-gray dark:text-white">
+      <Header toggleSideNave={cycleOpen} />
+      <Sidebar open={open} cycleOpen={cycleOpen} />
+      <main className="w-full p-5 pt-20 h-[100vh] overflow-y-scroll scrollbar-hide md:px-10 md:py-5 bg-light-secondary dark:bg-dark-secondary text-dark-gray dark:text-white">
         {children}
-      </main> */}
+      </main>
     </>
   )
 }

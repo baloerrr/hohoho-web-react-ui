@@ -1,52 +1,26 @@
 import React from 'react'
-import { useRef } from 'react'
-import { useContext } from 'react'
-import ThemeContext from '../../context/ThemeContext'
-import ButtonSwitch from '../ButtonSwitch'
-import { MdOutlineLightMode, MdOutlineNightlight } from 'react-icons/md'
-import useLogout from '../../hooks/useLogout'
+import PropTypes from 'prop-types'
+import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 
-const Header = () => {
-  const themeCtx = useContext(ThemeContext)
-  const user = localStorage.getItem('user')
-  const { logout } = useLogout()
-  const themeIsChecked = useRef(themeCtx.currentTheme === 'dark' ? true : false)
-
-  const switchThemeHandler = (e) => {
-    const value = e.target.checked
-    themeIsChecked.current = value
-    console.log(value)
-    themeCtx.changeTheme(value ? 'dark' : 'light')
-  }
-
+const Header = ({ toggleSideNave }) => {
   return (
-    <div className="header">
-      <div className="navbar bg-base-100  transition-all">
-        <div className="flex-1 drop-shadow-sm">
-          <h1 className="btn btn-ghost normal-case text-2xl text-primary font-black">
-            Hoh😐ho
-          </h1>
-        </div>
-        <div className="flex-none">
-          {user && (
-            <div>
-              <button className="btn btn-primary" onClick={logout}>
-                Log Out
-              </button>
-            </div>
-          )}
-          <ButtonSwitch
-            onChange={switchThemeHandler}
-            isChecked={themeIsChecked.current}
-            icon={{
-              iconLeft: MdOutlineLightMode,
-              iconRight: MdOutlineNightlight,
-            }}
-          />
-        </div>
+    <header className="absolute flex justify-between p-5 w-full shadow-lg bg-transparent z-10 md:hidden text-dark-gray dark:text-white bg-light-secondary dark:bg-dark-secondary">
+      <div className="w-full flex items-center">
+        <HiOutlineMenuAlt4
+          size={24}
+          className="cursor-pointer"
+          onClick={toggleSideNave}
+        />
       </div>
-    </div>
+      <div className="w-full flex justify-end items-center">
+        <span className="font-bold ml-2">ノート</span>
+      </div>
+    </header>
   )
+}
+
+Header.propTypes = {
+  toggleSideNave: PropTypes.func.isRequired,
 }
 
 export default Header
