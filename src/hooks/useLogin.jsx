@@ -30,21 +30,23 @@ const useLogin = () => {
           withCredentials: true,
         },
       )
-      if (res.data) {
-        localStorage.setItem('user', JSON.stringify(res.data))
-        dispatch({ type: 'LOGIN', payload: res.data })
-        toast.success(res.data.msg, {
-          position: 'top-right',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'colored',
-        })
-        setLoading(false)
-        navigate('/')
+      if (res) {
+        if (res.data) {
+          localStorage.setItem('user', JSON.stringify(res.data))
+          dispatch({ type: 'LOGIN', payload: res.data })
+          toast.success(res.data.msg, {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
+          })
+          setLoading(false)
+          navigate('/')
+        }
       }
     } catch (error) {
       setLoading(false)

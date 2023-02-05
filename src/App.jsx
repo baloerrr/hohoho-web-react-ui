@@ -53,6 +53,7 @@ const router = createBrowserRouter([
 
 const App = () => {
   const { user } = useAuthContext()
+  console.log(user)
   return (
     <div className="App dark:bg-slate-800">
       <BrowserRouter>

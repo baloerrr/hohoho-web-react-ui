@@ -1,6 +1,6 @@
 import AuthContext from './AuthContext'
 import authReducer from '../hooks/useAuthReducer'
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 import { useEffect } from 'react'
 
 const AuthContextProvider = ({ children }) => {
@@ -19,7 +19,7 @@ const AuthContextProvider = ({ children }) => {
   console.log('Auth context state', state)
 
   return (
-    <AuthContext.Provider value={{ state, dispatch }}>
+    <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}
     </AuthContext.Provider>
   )

@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+        nunito: ['Nunito', "sans-serif"],
+      },
       colors: {
         dark: {
           DEFAULT: "#24252A",

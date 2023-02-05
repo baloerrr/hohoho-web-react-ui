@@ -32,7 +32,7 @@ const useSignUp = () => {
       )
       if (res) {
         if (res.data) {
-          localStorage.setItem('user', JSON.stringify(res.data))
+          window.localStorage.setItem('user', JSON.stringify(res.data))
           dispatch({ type: 'LOGIN', payload: res.data })
           toast.success(res.data.msg, {
             position: 'top-right',
